@@ -1,0 +1,64 @@
+Source: libxpm
+Section: x11
+Priority: optional
+Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
+Build-Depends:
+ debhelper (>= 10),
+ quilt,
+ xutils-dev (>= 1:7.5+4),
+ libx11-dev (>= 1:0.99.2),
+ libxt-dev (>= 1:0.99.1-5),
+ x11proto-core-dev (>= 7.0.17),
+ libxext-dev (>= 1:0.99.1),
+ pkg-config,
+Standards-Version: 3.9.8
+Homepage: https://www.x.org
+Vcs-Git: https://anonscm.debian.org/git/pkg-xorg/lib/libxpm.git
+Vcs-Browser: https://anonscm.debian.org/git/pkg-xorg/lib/libxpm.git
+
+Package: libxpm4
+Section: libs
+Architecture: any
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends},
+Description: X11 pixmap library
+ The X PixMap image format is an extension of the monochrome X BitMap
+ format specified in the X protocol, and is commonly used in traditional
+ X applications.
+ .
+ This package provides runtime support for XPM format.
+
+Package: libxpm-dev
+Section: libdevel
+Architecture: any
+Multi-Arch: same
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends},
+ libxpm4 (= ${binary:Version}),
+ libx11-dev,
+ x11proto-core-dev,
+Description: X11 pixmap library (development headers)
+ The X PixMap image format is an extension of the monochrome X BitMap
+ format specified in the X protocol, and is commonly used in traditional
+ X applications.
+ .
+ This package contains the development headers for the libxpm4 library.
+ Non-developers likely have little use for this package.
+
+Package: xpmutils
+Architecture: any
+Pre-Depends: ${misc:Pre-Depends}
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends},
+Description: X11 pixmap utilities
+ The X PixMap image format is an extension of the monochrome X BitMap
+ format specified in the X protocol, and is commonly used in traditional
+ X applications.
+ .
+ This package provides two tools: cxpm (to check the integrity of an
+ XPM file) and sxpm (to view XPM files).
