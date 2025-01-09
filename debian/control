@@ -5,16 +5,17 @@ Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
 Build-Depends:
  debhelper (>= 10),
  quilt,
- xutils-dev (>= 1:7.5+4),
- libx11-dev (>= 1:0.99.2),
- libxt-dev (>= 1:0.99.1-5),
- x11proto-core-dev (>= 7.0.17),
- libxext-dev (>= 1:0.99.1),
+ xutils-dev,
+ libx11-dev,
+ libxt-dev,
+ x11proto-dev,
+ libxext-dev,
  pkg-config,
+ ncompress <!nocheck>,
 Standards-Version: 3.9.8
 Homepage: https://www.x.org
-Vcs-Git: https://anonscm.debian.org/git/pkg-xorg/lib/libxpm.git
-Vcs-Browser: https://anonscm.debian.org/git/pkg-xorg/lib/libxpm.git
+Vcs-Git: https://salsa.debian.org/xorg-team/lib/libxpm.git
+Vcs-Browser: https://salsa.debian.org/xorg-team/lib/libxpm
 
 Package: libxpm4
 Section: libs
@@ -40,7 +41,7 @@ Depends:
  ${misc:Depends},
  libxpm4 (= ${binary:Version}),
  libx11-dev,
- x11proto-core-dev,
+ x11proto-dev,
 Description: X11 pixmap library (development headers)
  The X PixMap image format is an extension of the monochrome X BitMap
  format specified in the X protocol, and is commonly used in traditional

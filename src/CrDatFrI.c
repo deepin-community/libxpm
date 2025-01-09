@@ -39,6 +39,10 @@
 #endif
 #include "XpmI.h"
 
+#ifdef FOR_MSW
+#define snprintf _snprintf
+#endif
+
 LFUNC(CreateColors, int, (char **dataptr, unsigned int *data_size,
 			  XpmColor *colors, unsigned int ncolors,
 			  unsigned int cpp));
@@ -237,10 +241,11 @@ XpmCreateDataFromXpmImage(
 /* exit point, free only locally allocated variables */
 exit:
     if (header) {
-	for (l = 0; l < header_nlines; l++)
+	for (l = 0; l < header_nlines; l++) {
 	    if (header[l])
 		XpmFree(header[l]);
-		XpmFree(header);
+	}
+	XpmFree(header);
     }
     return(ErrorStatus);
 }
