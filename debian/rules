@@ -3,5 +3,8 @@
 %:
 	dh $@ --with quilt --builddirectory=build/
 
+override_dh_auto_configure:
+	dh_auto_configure -- XPM_PATH_COMPRESS=/usr/bin/compress XPM_PATH_UNCOMPRESS=/bin/uncompress XPM_PATH_GZIP=/bin/gzip
+
 override_dh_install:
 	dh_install --fail-missing -XlibXpm.la

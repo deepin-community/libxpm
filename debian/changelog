@@ -1,3 +1,39 @@
+libxpm (1:3.5.17-1) unstable; urgency=high
+
+  [ Timo Aaltonen ]
+  * New upstream release.
+    - CVE-2023-43788: out of bounds read in XpmCreateXpmImageFromBuffer()
+    - CVE-2023-43789: out of bounds read on XPM with corrupted colormap
+  * control: Migrate to x11proto-dev.
+  * Update signing-key.
+  * patches: All patches upstream, drop them.
+
+  [ Debian Janitor ]
+  * Remove constraints unnecessary since buster:
+    + Build-Depends: Drop versioned constraint on libx11-dev, libxext-dev,
+      libxt-dev and xutils-dev.
+
+  [ Julien Cristau ]
+  * Update Vcs-* control fields.
+  * Add ncompress build-dependency for the test suite.
+  * Install man pages in libxpm-dev.
+
+ -- Julien Cristau <jcristau@debian.org>  Thu, 05 Oct 2023 14:24:36 +0200
+
+libxpm (1:3.5.12-1.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Fix CVE-2022-46285: Infinite loop on unclosed comments
+  * Fix CVE-2022-44617: Runaway loop with width of 0 and enormous height
+  * configure: add --disable-open-zfile instead of requiring -DNO_ZPIPE
+  * Fix CVE-2022-4883: compression commands depend on  $PATH
+  * Prevent a double free in the error code path
+  * Use gzip -d instead of gunzip
+  * debian/rules: configure: Set explicitly runtime paths for {,un}compress
+    and gzip.
+
+ -- Salvatore Bonaccorso <carnil@debian.org>  Mon, 16 Jan 2023 21:01:44 +0100
+
 libxpm (1:3.5.12-1) unstable; urgency=medium
 
   [ Andreas Boll ]
